@@ -55,5 +55,18 @@ describe('es6', () => {
             assert.strictEqual(dic.set([1, 2], "red"), undefined);
             assert.strictEqual(dic.set([1, 2], [1, 2]), undefined);
         });
+        const dic = new core.Dictionary();
+        it ('вставка корректных пар', () => {
+            assert.strictEqual(dic.set('fruit', 'apple'), true);
+            assert.strictEqual(dic.set('apple', 'green'), true);
+        });
+        it ('получение по существующему ключу', () => {
+            assert.strictEqual(dic.get('fruit'), 'apple');
+            assert.strictEqual(dic.get('apple'), 'green');
+        });
+        it ('получение по несуществующему ключу', () => {
+            assert.strictEqual(dic.get('car'), undefined);
+            assert.strictEqual(dic.get('apple'), 'green');
+        });
     });
 });

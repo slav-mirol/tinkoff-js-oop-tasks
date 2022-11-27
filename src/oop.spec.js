@@ -80,16 +80,14 @@ describe('ООП', () => {
             const queue = new core.Queue([1,2]);
             queue.push_back(3)
             assert.deepEqual(queue.array, [1,2,3]);
-            queue.pop_left()
-            assert.deepEqual(queue.array, [2,3]);
+            assert.deepEqual(queue.pop_left(), 1);
         });
 
         it('Проверка на пограничные случаи', () => {
             const queue = new core.Queue([]);
             queue.push_back(2)
             assert.deepEqual(queue.array, [2]);
-            queue.pop_left()
-            assert.deepEqual(queue.array, []);
+            assert.deepEqual(queue.pop_left(), 2);
             queue.pop_left()
             assert.deepEqual(queue.array, []);
             queue.push_back(1)

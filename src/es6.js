@@ -6,19 +6,15 @@
 // Напишите функцию, которая принимает ФИО пользователя и возвращает
 // строку формата Имя Фамилия
 function fioToName(fio) {
-    return fio.split(' ')[1] + ' ' + fio.split(' ')[0]
+    let [surname, firstName] = fio.split(' ');
+    return firstName + ' ' + surname;
 }
 
 // преобразуйте массив чисел так, чтобы в нем остались только
 // уникальные элементы
 // присмотритесь к коллекции "Set"
 function filterUnique(array) {
-    const set = new Set(array)
-    const ans = []
-    set.forEach(function(value) {
-        ans.push(value)
-    })
-    return ans
+    return Array.from(new Set(array))
 }
 
 // Задача: разница зарплат
@@ -27,13 +23,12 @@ function filterUnique(array) {
 // сотрудника превышает зарплату самого низкооплачиваемого
 // присмотритесь к методу .reduce
 function calculateSalaryDifference(array) {
-    if (array.length === 0) {
-        return false
-    } else {
+    if (array.length !== 0) {
         const minimum = (array) => array.reduce((x, y) => Math.min(x, y));
         const maximum = (array) => array.reduce((x, y) => Math.max(x, y));
         return maximum(array)/minimum(array);
     }
+    return false;
 }
 
 // Реализуйте класс "словарь слов"
@@ -48,6 +43,7 @@ class Dictionary {
     set(key, value) {
         if (typeof(key) !== 'string' || typeof(value) !== 'string') return;
         this.map.set(key, value);
+        return true;
     }
 
     get(key) {
