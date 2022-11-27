@@ -66,7 +66,7 @@ describe('es6', () => {
         });
         it ('получение по несуществующему ключу', () => {
             assert.strictEqual(dic.get('car'), undefined);
-            assert.strictEqual(dic.get('apple'), 'green');
+            assert.strictEqual(dic.get('red'), undefined);
         });
     });
 });

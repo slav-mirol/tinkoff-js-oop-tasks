@@ -78,7 +78,7 @@ describe('ООП', () => {
 
         it('Проверка массивом', () => {
             const queue = new core.Queue([1,2]);
-            queue.push_back(3)
+            queue.push_back(3);
             assert.deepEqual(queue.array, [1,2,3]);
             assert.deepEqual(queue.pop_left(), 1);
         });

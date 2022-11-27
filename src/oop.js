@@ -37,11 +37,11 @@ class Point3D extends Point {
  */
 class Queue {
     constructor(arr = []) {
-        this.array = arr
+        this.array = Array.from(arr)
     }
 
     push_back(e) {
-        this.array = this.array.push(e);
+        this.array.push(e);
     }
 
     pop_left() {
